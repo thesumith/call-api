@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "A lightweight API client",
+  "description": "Free Postman alternative online — REST API client in the browser",
   "engines": {
     "node": ">=18"
   },

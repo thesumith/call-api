@@ -3,15 +3,136 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Call API</title>
+    <title>Call API — Free Postman Alternative Online</title>
+    <meta
+      name="description"
+      content="Free Postman alternative online. Send HTTP requests, inspect JSON, save collections, and copy cURL in your browser. No signup, no install."
+    />
+    <meta
+      name="keywords"
+      content="free postman alternative, postman alternative online, online REST client, API tester, HTTP client, free API client"
+    />
+    <meta name="author" content="Call API" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="theme-color" content="#161311" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="application-name" content="Call API" />
+    <link rel="canonical" href="https://thesumith.github.io/call-api/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="https://thesumith.github.io/call-api/sitemap.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Call API" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://thesumith.github.io/call-api/" />
+    <meta property="og:title" content="Call API — Free Postman Alternative Online" />
+    <meta
+      property="og:description"
+      content="Test REST APIs in the browser. Free Postman alternative with headers, auth, JSON, history, and cURL export. No account required."
+    />
+    <meta property="og:image" content="https://thesumith.github.io/call-api/og.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:alt" content="Call API, a free Postman alternative online" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Call API — Free Postman Alternative Online" />
+    <meta
+      name="twitter:description"
+      content="Free online REST client. Send requests, read JSON, save collections, copy cURL — no signup."
+    />
+    <meta name="twitter:image" content="https://thesumith.github.io/call-api/og.svg" />
+
     <link rel="stylesheet" href="styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "@id": "https://thesumith.github.io/call-api/#app",
+            "name": "Call API",
+            "alternateName": [
+              "Free Postman Alternative",
+              "Postman Alternative Online",
+              "Online REST Client"
+            ],
+            "url": "https://thesumith.github.io/call-api/",
+            "description": "Free Postman alternative online. Browser REST client for sending HTTP requests, inspecting JSON responses, saving collections, and copying cURL. No signup or install.",
+            "applicationCategory": "DeveloperApplication",
+            "applicationSubCategory": "API client",
+            "operatingSystem": "Any",
+            "browserRequirements": "Requires JavaScript and a modern browser.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "isAccessibleForFree": true,
+            "featureList": [
+              "Send GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS requests",
+              "Edit query params, headers, JSON body, and auth",
+              "Pretty JSON responses with timing and size",
+              "Save requests, history, and import Postman collections",
+              "Copy requests as cURL"
+            ],
+            "softwareHelp": {
+              "@type": "WebPage",
+              "url": "https://github.com/thesumith/call-api"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://thesumith.github.io/call-api/#webpage",
+            "url": "https://thesumith.github.io/call-api/",
+            "name": "Call API — Free Postman Alternative Online",
+            "description": "Free Postman alternative online for testing REST APIs in the browser.",
+            "isPartOf": { "@id": "https://thesumith.github.io/call-api/#app" },
+            "about": { "@id": "https://thesumith.github.io/call-api/#app" }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is a free Postman alternative online?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Call API is a free Postman alternative that runs in your browser. You can send HTTP requests, inspect JSON, save collections, and copy cURL without creating an account or installing an app."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need to sign up to test APIs?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Call API is free to use in the browser with no signup. Saved requests stay in local storage on your device."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I import a Postman collection?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Import a Postman Collection v2.1 JSON file, or export your Call API requests as JSON."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="app">
       <aside class="rail">
         <header class="brand">
-          <span class="mark">Call API</span>
+          <h1 class="mark">Call API</h1>
           <span class="tag" id="mode-tag">local</span>
+          <p class="lede">Free Postman alternative online. Test REST APIs in the browser — no signup.</p>
         </header>
 
         <div class="rail-actions">
@@ -38,9 +159,31 @@
         </section>
 
         <footer class="rail-foot">
-          <button type="button" class="text-btn" id="btn-import">Import</button>
-          <button type="button" class="text-btn" id="btn-export">Export</button>
+          <div class="rail-foot-actions">
+            <button type="button" class="text-btn" id="btn-import">Import</button>
+            <button type="button" class="text-btn" id="btn-export">Export</button>
+          </div>
           <input type="file" id="import-file" accept=".json,application/json" hidden />
+          <details class="about-fold">
+            <summary>About this client</summary>
+            <h2>A free Postman alternative in your browser</h2>
+            <p>
+              Call API is a free online REST client for developers who want to test APIs without
+              installing Postman or creating an account. Paste a URL, set headers or a JSON body, and send.
+            </p>
+            <h2>What you can do</h2>
+            <ul>
+              <li>Send GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS</li>
+              <li>Edit query params, headers, Bearer / Basic / API key auth</li>
+              <li>Pretty-print JSON, copy cURL, save and replay requests</li>
+              <li>Import Postman Collection v2.1 files</li>
+            </ul>
+            <p>
+              Requests from this GitHub Pages site go directly from your browser, so APIs must allow CORS.
+              For a local proxy that bypasses CORS, clone
+              <a href="https://github.com/thesumith/call-api">thesumith/call-api</a> and run <code>npm start</code>.
+            </p>
+          </details>
         </footer>
       </aside>
 
@@ -60,14 +203,15 @@
             type="text"
             spellcheck="false"
             autocomplete="off"
-            placeholder="http://127.0.0.1:4040/__echo"
+            placeholder="https://httpbin.org/get"
+            aria-label="Request URL"
           />
           <button type="button" class="btn brass" id="btn-send">Send</button>
           <button type="button" class="btn ghost hidden" id="btn-cancel">Cancel</button>
         </div>
 
         <div class="workspace">
-          <section class="pane request-pane">
+          <section class="pane request-pane" aria-label="Request">
             <nav class="tabs" role="tablist">
               <button type="button" class="tab active" data-tab="params">Params</button>
               <button type="button" class="tab" data-tab="headers">Headers</button>
@@ -95,7 +239,7 @@
                   </label>
                   <button type="button" class="text-btn" id="btn-pretty">Format JSON</button>
                 </div>
-                <textarea id="body" spellcheck="false" placeholder="{ }"></textarea>
+                <textarea id="body" spellcheck="false" placeholder="{ }" aria-label="Request body"></textarea>
               </div>
               <div class="panel" id="panel-auth">
                 <div class="auth-form">
@@ -133,7 +277,7 @@
 
           <div class="splitter" id="splitter" role="separator" aria-orientation="horizontal"></div>
 
-          <section class="pane response-pane">
+          <section class="pane response-pane" aria-label="Response">
             <div class="response-meta" id="response-meta">
               <span class="muted" id="response-placeholder">Send a request to see the response</span>
               <span id="response-status" class="status-pill hidden"></span>
@@ -190,6 +334,13 @@
         </div>
       </form>
     </dialog>
+
+    <noscript>
+      <p>
+        Call API is a free Postman alternative online. Enable JavaScript to send HTTP requests
+        and inspect API responses in your browser.
+      </p>
+    </noscript>
 
     <script src="app.js" type="module"></script>
   </body>
