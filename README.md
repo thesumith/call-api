@@ -1,6 +1,6 @@
 # Call API
 
-Free Postman alternative online. A browser REST client for sending HTTP requests, inspecting JSON, saving collections, and copying cURL — no signup, no install.
+Free Postman alternative online. Test REST APIs in the browser – no signup.
 
 **Use it:** [https://thesumith.github.io/call-api/](https://thesumith.github.io/call-api/)
 

@@ -1,14 +1,24 @@
 {
   "name": "Call API — Free Postman Alternative Online",
   "short_name": "Call API",
-  "description": "Free Postman alternative online. Test REST APIs in the browser with no signup.",
+  "description": "Free Postman alternative online. Test REST APIs in the browser – no signup.",
   "start_url": "/call-api/",
   "scope": "/call-api/",
   "display": "standalone",
-  "background_color": "#161311",
-  "theme_color": "#161311",
+  "background_color": "#1b1815",
+  "theme_color": "#1b1815",
   "lang": "en",
   "icons": [
+    {
+      "src": "favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
     {
       "src": "favicon.svg",
       "sizes": "any",
