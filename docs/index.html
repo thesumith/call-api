@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Call API</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="rail">
+        <header class="brand">
+          <span class="mark">Call API</span>
+          <span class="tag" id="mode-tag">local</span>
+        </header>
+
+        <div class="rail-actions">
+          <button type="button" class="btn ghost" id="btn-new">New request</button>
+          <button type="button" class="btn ghost" id="btn-save">Save</button>
+        </div>
+
+        <label class="search">
+          <span class="sr-only">Search saved and history</span>
+          <input type="search" id="search" placeholder="Search" autocomplete="off" />
+        </label>
+
+        <section class="rail-section">
+          <h2>Saved</h2>
+          <ul id="saved-list" class="list"></ul>
+        </section>
+
+        <section class="rail-section grow">
+          <div class="section-head">
+            <h2>History</h2>
+            <button type="button" class="text-btn" id="btn-clear-history">Clear</button>
+          </div>
+          <ul id="history-list" class="list"></ul>
+        </section>
+
+        <footer class="rail-foot">
+          <button type="button" class="text-btn" id="btn-import">Import</button>
+          <button type="button" class="text-btn" id="btn-export">Export</button>
+          <input type="file" id="import-file" accept=".json,application/json" hidden />
+        </footer>
+      </aside>
+
+      <main class="stage">
+        <div class="urlbar">
+          <select id="method" aria-label="HTTP method">
+            <option>GET</option>
+            <option>POST</option>
+            <option>PUT</option>
+            <option>PATCH</option>
+            <option>DELETE</option>
+            <option>HEAD</option>
+            <option>OPTIONS</option>
+          </select>
+          <input
+            id="url"
+            type="text"
+            spellcheck="false"
+            autocomplete="off"
+            placeholder="http://127.0.0.1:4040/__echo"
+          />
+          <button type="button" class="btn brass" id="btn-send">Send</button>
+          <button type="button" class="btn ghost hidden" id="btn-cancel">Cancel</button>
+        </div>
+
+        <div class="workspace">
+          <section class="pane request-pane">
+            <nav class="tabs" role="tablist">
+              <button type="button" class="tab active" data-tab="params">Params</button>
+              <button type="button" class="tab" data-tab="headers">Headers</button>
+              <button type="button" class="tab" data-tab="body">Body</button>
+              <button type="button" class="tab" data-tab="auth">Auth</button>
+            </nav>
+
+            <div class="tab-panels">
+              <div class="panel active" id="panel-params">
+                <div class="kv" data-kv="params"></div>
+              </div>
+              <div class="panel" id="panel-headers">
+                <div class="kv" data-kv="headers"></div>
+              </div>
+              <div class="panel" id="panel-body">
+                <div class="body-toolbar">
+                  <label>
+                    Type
+                    <select id="body-type">
+                      <option value="none">None</option>
+                      <option value="json">JSON</option>
+                      <option value="text">Text</option>
+                      <option value="form">Form URL encoded</option>
+                    </select>
+                  </label>
+                  <button type="button" class="text-btn" id="btn-pretty">Format JSON</button>
+                </div>
+                <textarea id="body" spellcheck="false" placeholder="{ }"></textarea>
+              </div>
+              <div class="panel" id="panel-auth">
+                <div class="auth-form">
+                  <label>
+                    Type
+                    <select id="auth-type">
+                      <option value="none">None</option>
+                      <option value="bearer">Bearer token</option>
+                      <option value="basic">Basic</option>
+                      <option value="apikey">API key</option>
+                    </select>
+                  </label>
+                  <div class="auth-fields" id="auth-bearer">
+                    <label>Token<input id="auth-token" type="password" autocomplete="off" /></label>
+                  </div>
+                  <div class="auth-fields" id="auth-basic">
+                    <label>Username<input id="auth-user" autocomplete="off" /></label>
+                    <label>Password<input id="auth-pass" type="password" autocomplete="off" /></label>
+                  </div>
+                  <div class="auth-fields" id="auth-apikey">
+                    <label>Key name<input id="auth-key-name" placeholder="X-API-Key" /></label>
+                    <label>Value<input id="auth-key-value" type="password" autocomplete="off" /></label>
+                    <label>
+                      Add to
+                      <select id="auth-key-in">
+                        <option value="header">Header</option>
+                        <option value="query">Query</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="splitter" id="splitter" role="separator" aria-orientation="horizontal"></div>
+
+          <section class="pane response-pane">
+            <div class="response-meta" id="response-meta">
+              <span class="muted" id="response-placeholder">Send a request to see the response</span>
+              <span id="response-status" class="status-pill hidden"></span>
+              <span id="response-time" class="meta hidden"></span>
+              <span id="response-size" class="meta hidden"></span>
+              <span id="response-url" class="meta url hidden"></span>
+              <div class="response-actions">
+                <button type="button" class="text-btn" id="btn-copy-curl">Copy cURL</button>
+                <button type="button" class="text-btn" id="btn-copy-body">Copy body</button>
+              </div>
+            </div>
+            <nav class="tabs" role="tablist">
+              <button type="button" class="tab active" data-rtab="pretty">Pretty</button>
+              <button type="button" class="tab" data-rtab="raw">Raw</button>
+              <button type="button" class="tab" data-rtab="headers">Headers</button>
+            </nav>
+            <div class="response-view">
+              <pre id="response-pretty" class="code pretty active"></pre>
+              <pre id="response-raw" class="code"></pre>
+              <pre id="response-headers" class="code"></pre>
+            </div>
+          </section>
+        </div>
+
+        <footer class="statusbar">
+          <label class="env">
+            Environment
+            <select id="env-select"></select>
+          </label>
+          <button type="button" class="text-btn" id="btn-env">Variables</button>
+          <span class="hint" id="mode-hint">⌘↵ / Ctrl+Enter to send · bound to 127.0.0.1</span>
+        </footer>
+      </main>
+    </div>
+
+    <dialog id="env-dialog">
+      <form method="dialog" class="dialog">
+        <h3>Environment variables</h3>
+        <p class="muted">Use <code>{{name}}</code> in the URL, headers, params, or body.</p>
+        <div class="kv" data-kv="env"></div>
+        <div class="dialog-actions">
+          <button type="submit" class="btn brass" value="ok">Done</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="save-dialog">
+      <form method="dialog" class="dialog">
+        <h3>Save request</h3>
+        <label>Name<input id="save-name" required /></label>
+        <div class="dialog-actions">
+          <button type="button" class="btn ghost" id="save-cancel">Cancel</button>
+          <button type="submit" class="btn brass" value="ok" id="save-confirm">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
